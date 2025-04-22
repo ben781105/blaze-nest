@@ -18,7 +18,7 @@ function Hero() {
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center z-10 w-full">
         <div className="w-full mb-5 space-y-5">
           <div className="relative">
-            <div className="bg-white/70 w-full blur-sm p-10"></div>
+            <div className="bg-white/70 w-full blur-xs p-10"></div>
             <div className="p-5 absolute inset-0">
               <h1 className="text-4xl md:text-4xl font-black bg-gradient-black-blue text-transparent bg-clip-text">
                 Affordable Lodging. A Vibrant Marketplace. Tailored for
