@@ -1,18 +1,47 @@
 import { AlignLeft, X } from "lucide-react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 function Navbar() {
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const navLinks = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "About Us",
+      path: "/about",
+    },
+    {
+      name: "Features",
+      path: "/features",
+    },
+    {
+      name: "Marketplace",
+      path: "/marketplace",
+    },
+    {
+      name: "Lodging",
+      path: "/lodging",
+    },
+    {
+      name: "Contact Us",
+      path: "/contact",
+    },
+    {
+      name: "Login/Sign Up",
+      path: "/auth",
+    },
+  ];
 
   return (
     <nav className="bg-primary fixed flex items-center justify-between max-sm:px-3 md:justify-center xl:justify-between md:space-x-16 xl:px-5 py-2 font-bold inset-x-0 z-50">
       <div>
         <Link to="/" className="flex items-center space-x-1">
           <img src="/svgs/blaze_nest_logo.svg" alt="Blaze Nest Logo" />
-          <p className="bg-gradient-black-blue text-transparent bg-clip-text">
-            Blaze Nest
-          </p>
+          <p className="bg-gradient-black-blue">Blaze Nest</p>
         </Link>
       </div>
       <div
@@ -23,27 +52,15 @@ function Navbar() {
         }`}
       >
         <ul className="flex justify-evenly items-center *:cursor-pointer space-x-5 max-sm:flex-col max-sm:space-x-0 max-sm:space-y-4">
-          <li className="bg-gradient-black-blue bg-clip-text text-transparent">
-            Home
-          </li>
-          <li className="bg-gradient-black-blue bg-clip-text text-transparent">
-            About Us
-          </li>
-          <li className="bg-gradient-black-blue bg-clip-text text-transparent">
-            Features
-          </li>
-          <li className="bg-gradient-black-blue bg-clip-text text-transparent">
-            Marketplace
-          </li>
-          <li className="bg-gradient-black-blue bg-clip-text text-transparent">
-            Lodging
-          </li>
-          <li className="bg-gradient-black-blue bg-clip-text text-transparent">
-            Contact Us
-          </li>
-          <li className="bg-gradient-black-blue bg-clip-text text-transparent">
-            Login/Sign Up
-          </li>
+          {navLinks.map((link) => (
+            <NavLink
+              to={link.path}
+              key={link.name}
+              className="bg-gradient-black-blue"
+            >
+              {link.name}
+            </NavLink>
+          ))}
         </ul>
       </div>
       <div className="flex justify-center items-center space-x-5 md:hidden">

@@ -1,12 +1,20 @@
 import Hero from "../components/Hero";
+import HowItWorks from "../components/HowItWorks";
+import Lodging from "../components/Lodging";
+import Marketplace from "../components/Marketplace";
 import Navbar from "../components/Navbar";
+import OurFeatures from "../components/OurFeatures";
 
 function HomePage() {
   return (
-    <div>
+    <>
       <Navbar />
       <Hero />
-    </div>
+      <OurFeatures />
+      <HowItWorks />
+      <Lodging />
+      <Marketplace />
+    </>
   );
 }
 

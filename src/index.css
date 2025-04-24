@@ -13,6 +13,9 @@
 @layer utilities {
   .bg-gradient-black-blue {
     background-image: var(--gradient-black-blue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
   }
 }
 
