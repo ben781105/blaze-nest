@@ -40,7 +40,7 @@ function Navbar() {
     <nav className="bg-primary fixed flex items-center justify-between max-sm:px-3 md:justify-center xl:justify-between md:space-x-16 xl:px-5 py-2 font-bold inset-x-0 z-50">
       <div>
         <Link to="/" className="flex items-center space-x-1">
-          <img src="/svgs/blaze_nest_logo.svg" alt="Blaze Nest Logo" />
+          <img src="/svgs/blaze-nest-logo.svg" alt="Blaze Nest Logo" />
           <p className="bg-gradient-black-blue">Blaze Nest</p>
         </Link>
       </div>
