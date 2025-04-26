@@ -5,7 +5,7 @@ function ContactUs() {
     <section className="flex flex-col justify-center items-center px-5 py-16 space-y-8 max-w-7xl mx-auto">
       <h2 className="text-3xl font-bold bg-gradient-black-blue">Contact Us</h2>
 
-      <div className="flex flex-col md:flex-row justify-between items-stretch w-full bg-white rounded-lg shadow-lg overflow-hidden">
+      <div className="flex flex-col-reverse md:flex-row justify-between items-stretch w-full bg-white rounded-lg shadow-lg overflow-hidden">
         <div className="flex flex-col w-full md:w-1/2 p-8 bg-amber-50">
           <h3 className="text-2xl font-semibold mb-3 text-gray-800">
             Get In Touch

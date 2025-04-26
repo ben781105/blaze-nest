@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function AuthOptions() {
+  const navigate = useNavigate();
   return (
     <section className="relative min-h-screen bg-primary">
       <Navbar />
@@ -22,10 +24,16 @@ function AuthOptions() {
             Sign Up / Login As
           </h1>
           <div className="*:text-primary-blue *:bg-white flex justify-center items-center space-x-10 mt-4">
-            <button className="font-bold py-4 px-5 md:px-10 rounded-2xl border border-primary-blue">
+            <button
+              className="font-bold py-4 px-5 md:px-10 rounded-2xl border border-primary-blue"
+              onClick={() => navigate("/auth/sign-up/agent")}
+            >
               House Agent
             </button>
-            <button className="font-bold py-4 px-12 rounded-2xl border border-primary-blue">
+            <button
+              className="font-bold py-4 px-12 rounded-2xl border border-primary-blue"
+              onClick={() => navigate("/auth/sign-up/student")}
+            >
               Student
             </button>
           </div>

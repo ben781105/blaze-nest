@@ -30,7 +30,7 @@ function Marketplace() {
     <section className="flex flex-col justify-center items-center px-5 py-16 space-y-5 bg-[#EFE4D7]">
       <h2 className="bg-gradient-black-blue text-3xl font-bold">Marketplace</h2>
 
-      <div className="flex justify-center items-stretch space-x-3">
+      <div className="flex flex-wrap justify-center items-stretch gap-5 xl:space-x-3">
         {marketplace.map((item, index) => (
           <div
             className="flex flex-col justify-center items-start space-y-4 shadow-2xl bg-white rounded-lg p-4 text-center w-80"

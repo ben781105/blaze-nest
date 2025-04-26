@@ -27,7 +27,7 @@ function Testimonial() {
       <h2 className="bg-gradient-black-blue text-3xl font-bold">
         Testimonials
       </h2>
-      <div className="flex justify-center items-stretch space-x-10">
+      <div className="flex flex-wrap justify-center items-stretch gap-5 xl:space-x-10">
         {testimonials.map((testimony, index) => (
           <div
             className="flex flex-col justify-center items-center space-y-4 shadow-2xl bg-white rounded-lg p-4 text-center w-80"

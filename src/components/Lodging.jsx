@@ -23,14 +23,14 @@ function Lodging() {
   return (
     <section className="flex flex-col justify-center items-center px-5 py-16 space-y-5">
       <h2 className="bg-gradient-black-blue text-3xl font-bold">Lodging</h2>
-      <ul className="flex justify-between items-center text-2xl font-bold w-2xl">
+      <ul className="flex justify-center flex-wrap md:justify-between items-center text-xl max-sm:gap-4 md:text-2xl font-bold md:w-2xl">
         <li className="bg-gradient-black-blue">Location</li>
         <li className="bg-gradient-black-blue">Price Range</li>
         <li className="bg-gradient-black-blue">House Type</li>
         <li className="bg-gradient-black-blue">Availability Date</li>
       </ul>
       <div>
-        <div className="flex justify-center items-stretch space-x-3">
+        <div className="flex flex-wrap  justify-center items-stretch gap-5 xl:space-x-3">
           {lodges.map((lodge, index) => (
             <div
               className="flex flex-col justify-center items-start space-y-4 shadow-2xl bg-white rounded-lg p-4 text-center w-80"

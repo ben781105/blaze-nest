@@ -1,25 +1,28 @@
 function Hero() {
   return (
     <section className="relative">
-      <div className="relative w-full h-full">
+      <div className="relative w-full h-screen xl:h-full">
         <img
           src="/imgs/banner_img1.png"
           alt="banner img"
-          className="w-full object-cover"
+          className="w-full h-full object-cover"
         />
         <img
           src="/imgs/banner_img2.png"
           alt="banner img"
-          className="w-full object-cover absolute top-0 left-0"
+          className="w-full max-lg:h-full object-cover absolute top-0 left-0 hidden xl:block brightness-75"
         />
+
+        {/* Dark overlay for better text contrast */}
+        <div className="absolute inset-0 bg-black/30 xl:hidden"></div>
       </div>
 
       {/* Centered Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-white text-center z-10 w-full">
         <div className="w-full mb-5 space-y-5">
           <div className="relative">
-            <div className="bg-white/70 w-full blur-xs p-10"></div>
-            <div className="p-5 absolute inset-0">
+            <div className="bg-white/70 w-full blur-xs p-10 hidden xl:block"></div>
+            <div className="p-5 xl:absolute inset-0">
               <h1 className="text-4xl md:text-4xl font-black bg-gradient-black-blue text-transparent bg-clip-text">
                 Affordable Lodging. A Vibrant Marketplace. Tailored for
                 Students.
