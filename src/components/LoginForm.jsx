@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 function LoginForm() {
   const {
@@ -8,6 +8,8 @@ function LoginForm() {
     reset,
     formState: { errors },
   } = useForm();
+
+  const { role } = useParams();
 
   function onSubmit(data) {
     console.log(data);
@@ -22,10 +24,10 @@ function LoginForm() {
       >
         <div className="flex justify-between items-center">
           <h3 className="bg-gradient-black-blue text-transparent bg-clip-text text-xl xl:text-4xl font-bold">
-            Sign Up / Login As
+            Login As
           </h3>
           <button className="bg-white px-4 xl:px-10 py-3 border border-primary-blue text-primary-blue rounded-xl font-bold">
-            House Agent
+            {role === "student" ? "Student" : "House Agent"}
           </button>
         </div>
         <div className="flex flex-col space-y-5 mt-5">
@@ -66,7 +68,7 @@ function LoginForm() {
       <div className="flex flex-col items-center justify-center space-y-3 mt-10">
         <p>
           <span>{"Don't"} have an account?</span>{" "}
-          <Link to="/auth/sign-up/student" className="cursor-pointer">
+          <Link to={`/auth/sign-up/${role}`} className="cursor-pointer">
             Sign Up
           </Link>
         </p>
