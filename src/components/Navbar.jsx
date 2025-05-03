@@ -45,7 +45,7 @@ function Navbar() {
         </Link>
       </div>
       <div
-        className={`flex justify-center items-center xl:w-1/2 max-sm:fixed max-sm:inset-x-0 max-sm:top-0 max-sm:w-full max-sm:h-[60vh] max-sm:transform max-md:transition-transform max-md:duration-300 max-sm:-z-[5] ${
+        className={`flex justify-center items-center xl:w-[60%] max-sm:fixed max-sm:inset-x-0 max-sm:top-0 max-sm:w-full max-sm:h-[60vh] max-sm:transform max-md:transition-transform max-md:duration-300 max-sm:-z-[5] ${
           isNavOpen
             ? "translate-y-0 opacity-100 max-sm:backdrop-blur-md max-sm:bg-opacity-90"
             : "max-sm:-translate-y-[1000%]"
