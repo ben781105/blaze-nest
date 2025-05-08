@@ -1,3 +1,8 @@
 export { default as TwitterX } from "./TwitterX";
 export { default as Instagram } from "./Instagram";
 export { default as Facebook } from "./Facebook";
+export { default as HomeIcon } from "./HomeIcon";
+export { default as SavedIcon } from "./SavedIcon";
+export { default as CartIcon } from "./CartIcon";
+export { default as MessageIcon } from "./MessageIcon";
+export { default as ProfileIcon } from "./ProfileIcon";

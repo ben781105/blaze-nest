@@ -5,12 +5,12 @@ function StudentDashboard() {
   const [searchQuery, setSearchQuery] = useState("");
 
   const categories = [
-    { id: 1, name: "Lodges/Property", image: "/images/agent1.png" },
-    { id: 2, name: "Phones&Gadgets", image: "/images/agent1.png" },
-    { id: 3, name: "Furniture", image: "/images/agent1.png" },
-    { id: 4, name: "Clothes", image: "/images/agent1.png" },
-    { id: 5, name: "Cosmetics", image: "/images/agent1.png" },
-    { id: 6, name: "Cars&Automobile", image: "/images/agent1.png" },
+    { id: 1, name: "Lodges/Property", image: "/imgs/agent1.png" },
+    { id: 2, name: "Phones&Gadgets", image: "/imgs/agent1.png" },
+    { id: 3, name: "Furniture", image: "/imgs/agent1.png" },
+    { id: 4, name: "Clothes", image: "/imgs/agent1.png" },
+    { id: 5, name: "Cosmetics", image: "/imgs/agent1.png" },
+    { id: 6, name: "Cars&Automobile", image: "/imgs/agent1.png" },
   ];
 
   return (
@@ -43,7 +43,7 @@ function StudentDashboard() {
               className="block"
             >
               <div className="rounded-lg overflow-hidden shadow-lg hover:shadow-md transition-shadow">
-                <div className="h-44 overflow-hidden">
+                <div className="h-52 overflow-hidden">
                   <img
                     src={category.image}
                     alt={category.name}

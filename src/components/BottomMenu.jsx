@@ -1,43 +1,43 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import {
-  HomeIcons,
-  SavedIcons,
-  CartIcons,
-  MessageIcons,
-  ProfileIcons,
-} from "../globals/Icons";
+  HomeIcon,
+  SavedIcon,
+  CartIcon,
+  MessageIcon,
+  ProfileIcon,
+} from "./icons/index";
 
 const data = [
   {
     id: 1,
     name: "Home",
     path: "home",
-    icon: <HomeIcons className="text-gray-400 h-6 w-6" />,
+    icon: <HomeIcon className="text-gray-400 h-6 w-6" />,
   },
   {
     id: 2,
     name: "Saved",
     path: "saved",
-    icon: <SavedIcons className="text-gray-400 h-6 w-6" />,
+    icon: <SavedIcon className="text-gray-400 h-6 w-6" />,
   },
   {
     id: 3,
     name: "Cart",
     path: "cart",
-    icon: <CartIcons className="text-gray-400 h-6 w-6" />,
+    icon: <CartIcon className="text-gray-400 h-6 w-6" />,
   },
   {
     id: 4,
     name: "Messages",
     path: "messages",
-    icon: <MessageIcons className="text-gray-400 h-6 w-6" />,
+    icon: <MessageIcon className="text-gray-400 h-6 w-6" />,
   },
   {
     id: 5,
     name: "Profile",
     path: "profile",
-    icon: <ProfileIcons className="text-gray-400 h-6 w-6" />,
+    icon: <ProfileIcon className="text-gray-400 h-6 w-6" />,
   },
 ];
 const BottomMenu = () => {
@@ -55,7 +55,7 @@ const BottomMenu = () => {
               onClick={() => setActive(item.id)}
             >
               <Link
-                className="flex cursor-pointer   flex-col items-center"
+                className="flex cursor-pointer flex-col items-center"
                 to={item.path}
               >
                 {item.icon}
