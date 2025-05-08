@@ -57,7 +57,9 @@ function LoginForm() {
               <p className="text-red-500 text-sm">{errors.password.message}</p>
             )}
           </div>
-          <p>Forgot Password?</p>
+          <Link to={`/password-recovery/${role}`} >
+            <p>Forgot Password?</p>
+          </Link>
         </div>
         <div className="flex justify-center mt-5">
           <button className="py-3 px-20 bg-primary rounded-2xl font-semibold">

@@ -7,6 +7,8 @@ import ProtectedAuthRoute from "./components/ProtectedAuthRoute";
 import StudentDashboard from "./pages/StudentDashboard";
 import CategoryPage from "./pages/CategoryPage";
 import StudentLayout from "./components/Layout/StudentLayout";
+import PasswordRecovery from "./pages/PasswordRecovery";
+
 
 function App() {
   return (
@@ -37,6 +39,7 @@ function App() {
             </ProtectedAuthRoute>
           }
         />
+        <Route path="/password-recovery/:role"  element={<PasswordRecovery/>} />
       </Routes>
     </BrowserRouter>
   );
