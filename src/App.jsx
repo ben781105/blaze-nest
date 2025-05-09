@@ -41,9 +41,30 @@ function App() {
             </ProtectedAuthRoute>
           }
         />
-        <Route path="/password-recovery/:role"  element={<PasswordRecovery/>} />
-        <Route path="/verify-password/:role" element={<VerifyPassword/>} />
-        <Route path="/reset-password/:role" element={<ResetPassword/>} />
+        <Route
+          path="/password-recovery/:role"
+          element={
+            <ProtectedAuthRoute>
+              <PasswordRecovery />
+            </ProtectedAuthRoute>
+          }
+        />
+         <Route
+          path="/verify-password/:role"
+          element={
+            <ProtectedAuthRoute>
+              <VerifyPassword />
+            </ProtectedAuthRoute>
+          }
+        />
+         <Route
+          path="/reset-password/:role"
+          element={
+            <ProtectedAuthRoute>
+              <ResetPassword />
+            </ProtectedAuthRoute>
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
