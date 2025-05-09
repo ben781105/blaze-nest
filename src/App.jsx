@@ -8,6 +8,8 @@ import StudentDashboard from "./pages/StudentDashboard";
 import CategoryPage from "./pages/CategoryPage";
 import StudentLayout from "./components/Layout/StudentLayout";
 import PasswordRecovery from "./pages/PasswordRecovery";
+import VerifyPassword from "./pages/VerifyPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 
 function App() {
@@ -40,6 +42,8 @@ function App() {
           }
         />
         <Route path="/password-recovery/:role"  element={<PasswordRecovery/>} />
+        <Route path="/verify-password/:role" element={<VerifyPassword/>} />
+        <Route path="/reset-password/:role" element={<ResetPassword/>} />
       </Routes>
     </BrowserRouter>
   );
