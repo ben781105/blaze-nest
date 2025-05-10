@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
 const StudentLayout = () => {
   return (
-    <div>
+    <div className="flex flex-col min-h-screen relative">
       <nav className="bg-primary fixed flex items-center justify-between max-sm:px-3 md:justify-center xl:justify-between md:space-x-16 xl:px-5 py-2 font-bold inset-x-0 z-50">
         <div>
           <Link to="/" className="flex items-center space-x-1">
@@ -14,7 +14,9 @@ const StudentLayout = () => {
           </Link>
         </div>
       </nav>
-      <Outlet />
+      <main className="flex-1 mt-16 mb-20 p-4">
+        <Outlet />
+      </main>
       <BottomMenu />
     </div>
   );
