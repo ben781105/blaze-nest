@@ -10,6 +10,7 @@ import StudentLayout from "./components/Layout/StudentLayout";
 import PasswordRecovery from "./pages/PasswordRecovery";
 import VerifyPassword from "./pages/VerifyPassword";
 import ResetPassword from "./pages/ResetPassword";
+import StudentProfile from "./components/StudentProfile";
 
 
 function App() {
@@ -18,11 +19,13 @@ function App() {
       <Routes>
         <Route index element={<HomePage />} />
         <Route path="/student-dashboard" element={<StudentLayout />}>
-          <Route path="/student-dashboard" element={<StudentDashboard />} />
+          <Route index element={<StudentDashboard />} />
+          <Route path="/student-dashboard/profile" element={<StudentProfile/>} />
           <Route
             path="/student-dashboard/:category"
             element={<CategoryPage />}
           />
+          
         </Route>
         <Route path="/auth" element={<AuthOptions />} />
         <Route
