@@ -6,10 +6,9 @@ function StudentProfile(){
     }
 return(
   <>
-<div className="hidden md:block min-h-screen w-40 absolute left-0 top-0 bg-primary -z-40"></div>
+<div className="hidden md:block min-h-screen w-50 fixed left-70 top-20 bg-primary -z-40 rounded-2xl"></div>
 
-
-<div className="bg-white min-h-fit pb-4 rounded-2xl flex-1 flex flex-col gap-12 z-40 ml-0 md:ml-10 max-w-2xl border border-gray-200 shadow-md">
+<div className="bg-white min-h-fit pb-4 rounded-2xl  flex flex-col gap-12 z-40 ml-0  md:mx-auto md:mr-auto: max-w-2xl border border-gray-200 shadow-md">
 
    <div className=" relative bg-gradient-to-b from-blue-400 via-blue-300 to-amber-100  h-30 w-full rounded-t-2xl">
         
