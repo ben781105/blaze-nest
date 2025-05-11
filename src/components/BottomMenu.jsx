@@ -47,7 +47,7 @@ const BottomMenu = () => {
   const location = useLocation();
 
   return (
-    <footer className="bg-white sticky bottom-0 w-full border-t z-50">
+    <footer className="bg-white fixed bottom-0 w-full h-20 z-50">
       <nav className="flex justify-around p-4">
         <ul className="flex justify-around w-full">
           {data.map((item) => {
