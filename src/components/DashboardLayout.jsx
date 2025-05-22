@@ -1,6 +1,5 @@
-import React from 'react';
-import Tabs from './Tabs'; // or use DashboardNav if that's your component
-import { Outlet } from 'react-router-dom';
+import Tabs from "./Tabs"; // or use DashboardNav if that's your component
+import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (

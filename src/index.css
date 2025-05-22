@@ -1,1 +1,24 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 @import "tailwindcss";
+
+:root {
+  --gradient-black-blue: linear-gradient(to right, black, #22a0fb);
+}
+
+@theme {
+  --color-primary: #f1b570;
+  --color-primary-blue: #5da1ec;
+}
+
+@layer utilities {
+  .bg-gradient-black-blue {
+    background-image: var(--gradient-black-blue);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
