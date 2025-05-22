@@ -11,6 +11,7 @@ import PasswordRecovery from "./pages/PasswordRecovery";
 import VerifyPassword from "./pages/VerifyPassword";
 import ResetPassword from "./pages/ResetPassword";
 import StudentProfile from "./components/StudentProfile";
+import ChatPage from "./pages/ChatPage";
 
 
 function App() {
@@ -68,6 +69,9 @@ function App() {
             </ProtectedAuthRoute>
           }
         />
+        {/* Add this new line below auth routes */}
+        <Route
+         path="/chat" element={<ChatPage />} />
       </Routes>
     </BrowserRouter>
   );
