@@ -8,9 +8,9 @@ const Tabs = () => {
   ];
 
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col w-full">
       {/* Logo Header */}
-      <div className="bg-[#F2B272] flex items-center px-4 py-2 mb-4">
+      <div className="bg-[#F2B272] flex items-center px-4 py-3">
         <img
           src="/svgs/blaze-nest-logo.svg"
           alt="Blaze Nest Logo"
@@ -19,18 +19,18 @@ const Tabs = () => {
         <span className="text-sm font-semibold text-[#065F80]">Blaze Nest</span>
       </div>
 
-      {/* Centered, narrower Navigation Tabs */}
-      <div className="bg-[#DE8F35] py-8 px-70 max-w-8xl mx-auto flex ">
-        <div className="max-w-4xl mx-auto flex justify-around font-semibold text-lg">
+      {/* Responsive Navigation Tabs */}
+      <div className="bg-[#DE8F35] py-4 px-4 w-full">
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 font-semibold text-base text-white">
           {tabs.map((tab) => (
             <NavLink
               key={tab.to}
               to={tab.to}
               className={({ isActive }) =>
-                `transition px-4 py-1 ${
+                `transition px-3 py-1 border-b-2 ${
                   isActive
-                    ? 'hover:border-b-4 hover:border-[#0C61FF]'
-                    : 'hover:text-white'
+                    ? 'border-white font-bold'
+                    : 'border-transparent hover:border-white'
                 }`
               }
             >
