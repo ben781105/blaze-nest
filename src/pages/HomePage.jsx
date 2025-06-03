@@ -13,6 +13,7 @@ import Testimonial from "../components/Testimonial";
 import TheTeam from "../components/TheTeam";
 import Vision from "../components/Vision";
 
+
 function HomePage() {
   return (
     <>
@@ -30,6 +31,7 @@ function HomePage() {
       <ContactUs />
       <Simplify />
       <Footer />
+      
     </>
   );
 }
