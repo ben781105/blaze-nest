@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -11,8 +11,8 @@ import PasswordRecovery from "./pages/PasswordRecovery";
 import VerifyPassword from "./pages/VerifyPassword";
 import ResetPassword from "./pages/ResetPassword";
 import StudentProfile from "./components/StudentProfile";
-import DashboardLayout from "./components/DashboardLayout";
-import Dashboard from "./components/Dashboard";
+import AgentLayout from "./components/AgentLayout";
+import AgentDashboard from "./components/AgentDashboard";
 import AddLodge from "./components/AddLodge";
 import ManageListing from "./components/ManageListing";
 
@@ -66,10 +66,11 @@ function App() {
           </ProtectedAuthRoute>
         }
       />
-      <Route element={<DashboardLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/add-lodge" element={<AddLodge />} />
-        <Route path="/manage-listing" element={<ManageListing />} />
+      <Route path="/agent" element={<AgentLayout />}>
+        <Route index element={<Navigate to="/agent/dashboard" />} />
+        <Route path="/agent/dashboard" element={<AgentDashboard />} />
+        <Route path="/agent/add-lodge" element={<AddLodge />} />
+        <Route path="/agent/manage-listing" element={<ManageListing />} />
       </Route>
     </Routes>
   );
