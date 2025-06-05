@@ -15,6 +15,8 @@ import AgentLayout from "./components/AgentLayout";
 import AgentDashboard from "./components/AgentDashboard";
 import AddLodge from "./components/AddLodge";
 import ManageListing from "./components/ManageListing";
+import SubCategoryPage from "./pages/lodgesSubcategoryPage";
+import LodgesPropertyLayout from "./components/Layout/lodgesPropertyLayout";
 
 function App() {
   return (
@@ -23,7 +25,12 @@ function App() {
       <Route path="/student-dashboard" element={<StudentLayout />}>
         <Route index element={<StudentDashboard />} />
         <Route path="/student-dashboard/profile" element={<StudentProfile />} />
+        <Route path="/student-dashboard/home" element={<StudentDashboard />} />
         <Route path="/student-dashboard/:category" element={<CategoryPage />} />
+        <Route path="/student-dashboard/lodges&property" element={<LodgesPropertyLayout />}>
+        <Route path=":subcategory" element={<SubCategoryPage />} />
+        <Route index element={<SubCategoryPage />} />
+        </Route>
       </Route>
       <Route path="/auth" element={<AuthOptions />} />
       <Route
