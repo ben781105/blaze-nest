@@ -10,33 +10,28 @@ import {
 const data = [
   { 
     id: 1, 
-    name: "Home",
     path: "/student-dashboard/home", 
     icon: <HomeIcon className="h-6 w-6" 
     /> 
   },
   { 
     id: 2, 
-    name: "Saved",
     path: "/student-dashboard/saved",
     icon: <SavedIcon className="h-6 w-6"
     /> 
   },
   { id: 3,
-     name: "Cart",
     path: "/student-dashboard/cart",
     icon: <CartIcon className="h-6 w-6"
     />
   },
   { 
     id: 4,
-    name: "Messages",
     path: "/student-dashboard/messages",
     icon: <MessageIcon className="h-6 w-6"
     />
   },
   { id: 5,
-    name: "Profile",
     path: "/student-dashboard/profile",
     icon: <ProfileIcon className="h-6 w-6"
     /> 
@@ -56,16 +51,15 @@ const BottomMenu = () => {
             return (
               <li
                 key={item.id}
-                className={`flex flex-col items-center  ${
-                  isActive ? "bg-amber-100 px-3 py-2 text-black" : "text-gray-400"
-                } p-1 rounded-full`}
+                className={`flex items-center  ${
+                  isActive ? "bg-primary px-3 py-3 text-black" : " px-3 py-3 text-gray-400"
+                }  rounded-full`}
               >
                 <Link
                   to={item.path}
                   className="flex flex-col items-center"
                 >
                   {item.icon}
-                  <span className="text-xs">{item.name}</span>
                 </Link>
               </li>
             );
