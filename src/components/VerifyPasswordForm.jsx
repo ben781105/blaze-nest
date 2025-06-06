@@ -1,6 +1,6 @@
 import { Link, useParams, useNavigate } from "react-router-dom";
-import leftArrow from "/svgs/left-arrow-icon.svg";
 import { useRef, useState, useEffect } from "react";
+
 function VerifyPasswordForm() {
   const { role } = useParams();
   const inputsRef = useRef([]);
@@ -51,13 +51,13 @@ function VerifyPasswordForm() {
 
   const handlePaste = (e) => {
     e.preventDefault();
-    const pasteData = e.clipboardData.getData("text").slice(0, 4); // Limit to 4 characters
+    const pasteData = e.clipboardData.getData("text/plain").slice(0, 4); // Limit to 4 characters
     const inputsArray = pasteData.split("");
-    inputsArray.forEach((char, i) => {
-      if (i < inputsRef.current.length) {
-        inputsRef.current[i].value = char;
-        if (i < inputsArray.length - 1) {
-          inputsRef.current[i + 1].focus();
+    inputsArray.forEach((char, index) => {
+      if (index < inputsRef.current.length) {
+        inputsRef.current[index].value = char;
+        if (index < inputsArray.length - 1) {
+          inputsRef.current[index + 1].focus();
         }
       }
     });
@@ -79,7 +79,7 @@ function VerifyPasswordForm() {
     <div className="w-full max-w-xl flex flex-col border rounded-xl py-20 px-5 relative overflow-x-hidden ">
       <Link to={`/password-recovery/${role}`}>
         <img
-          src={leftArrow}
+          src="/svgs/left-arrow-icon.svg"
           alt="left-arrow-icon"
           className="absolute w-6 h-6 left-3 sm:left-10 top-8 cursor-pointer"
         />
