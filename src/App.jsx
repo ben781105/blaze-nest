@@ -17,6 +17,8 @@ import AddLodge from "./components/AddLodge";
 import ManageListing from "./components/ManageListing";
 import SubCategoryPage from "./pages/lodgesSubcategoryPage";
 import LodgesPropertyLayout from "./components/Layout/lodgesPropertyLayout";
+import StudentBookmarks from "./components/studentBookmarks";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
         <Route index element={<StudentDashboard />} />
         <Route path="/student-dashboard/profile" element={<StudentProfile />} />
         <Route path="/student-dashboard/home" element={<StudentDashboard />} />
+        <Route path="/student-dashboard/saved" element={<StudentBookmarks/>}/>
         <Route path="/student-dashboard/:category" element={<CategoryPage />} />
         <Route path="/student-dashboard/lodges&property" element={<LodgesPropertyLayout />}>
         <Route path=":subcategory" element={<SubCategoryPage />} />

@@ -2,7 +2,7 @@ import React from "react";
 import { useParams } from "react-router-dom";
 import SavedIcon from "../components/icons/SavedIcon";
 import { Search } from "lucide-react";
-import { useState} from "react";
+import { useState,useEffect} from "react";
 import { useNavigate } from "react-router-dom";
 
 const listings = [
@@ -186,7 +186,8 @@ const listings = [
 
 export default function CategoryPage() {
   const { category } = useParams();
-   const [searchQuery, setSearchQuery] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [bookmarked,setBookmarked] = useState([])
   const navigate = useNavigate();
 
   const filteredListings = listings.filter(
@@ -196,8 +197,19 @@ export default function CategoryPage() {
     .replace(/&/g, " & ")
     .replace(/-/g, " ")
     .replace(/\b\w/g, (l) => l.toUpperCase());
+
+    useEffect(()=>{
+    localStorage.setItem("studentBookmarks",JSON.stringify(bookmarked))
+    },[bookmarked])
   
-    
+ const toggleBookmark =(listing) =>{
+  const isBookmarked = bookmarked.some((b) => b.id === listing.id)
+  const updated = isBookmarked
+  ? bookmarked.filter((b)=> b.id !== listing.id):
+  [...bookmarked,listing]
+    setBookmarked(updated)
+ }
+
   return (
     <section>
       <header className=" flex bg-amber-600 px-4 py-8">
@@ -232,7 +244,9 @@ export default function CategoryPage() {
             No listings found in this category.
           </p>
         ) : (
-          filteredListings.map((listing) => (
+          filteredListings.map((listing) => {
+          const isBookmarked = bookmarked.some((b) => b.id === listing.id)
+          return(
             <div
               key={listing.id}
               className="bg-white border border-gray-300 relative shadow-md hover:shadow-lg transition"
@@ -257,11 +271,15 @@ export default function CategoryPage() {
                   alt="vendor" />
                 
               </div>
-              <span className="absolute top-54 right-5 border p-2 rounded-full">
-                 <SavedIcon className="h-7 w-7"/>
+              <span  
+              onClick={() => toggleBookmark(listing)}
+              className={`absolute top-54 right-5 border p-2 rounded-full ${isBookmarked ? "bg-primary text-white" : "bg-white text-gray-500"} cursor-pointer`}>
+                  <SavedIcon
+                  className="h-7 w-7"
+                  />
               </span>
             </div>
-          ))
+          )})
         )}
       </div>
     </div>
