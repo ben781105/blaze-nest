@@ -19,20 +19,27 @@ import SubCategoryPage from "./pages/lodgesSubcategoryPage";
 import LodgesPropertyLayout from "./components/Layout/lodgesPropertyLayout";
 import StudentBookmarks from "./components/studentBookmarks";
 
-
 function App() {
   return (
     <Routes>
       <Route index element={<HomePage />} />
       <Route path="/student-dashboard" element={<StudentLayout />}>
-        <Route index element={<StudentDashboard />} />
+        <Route index element={<Navigate to="/student-dashboard/home" />} />
         <Route path="/student-dashboard/profile" element={<StudentProfile />} />
         <Route path="/student-dashboard/home" element={<StudentDashboard />} />
-        <Route path="/student-dashboard/saved" element={<StudentBookmarks/>}/>
+        <Route path="/student-dashboard/saved" element={<StudentBookmarks />} />
         <Route path="/student-dashboard/:category" element={<CategoryPage />} />
-        <Route path="/student-dashboard/lodges&property" element={<LodgesPropertyLayout />}>
-        <Route path=":subcategory" element={<SubCategoryPage />} />
-        <Route index element={<SubCategoryPage />} />
+        <Route
+          path="/student-dashboard/lodges&property"
+          element={<LodgesPropertyLayout />}
+        >
+          <Route
+            index
+            element={
+              <Navigate to="/student-dashboard/lodges&property/lodges" />
+            }
+          />
+          <Route path=":subcategory" element={<SubCategoryPage />} />
         </Route>
       </Route>
       <Route path="/auth" element={<AuthOptions />} />
