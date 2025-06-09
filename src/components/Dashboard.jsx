@@ -9,7 +9,7 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
-import LodgeCard from "./LodgeCard";
+// import LodgeCard from "./LodgeCard"; // Remove if not used
 
 ChartJS.register(
   CategoryScale,
@@ -43,64 +43,74 @@ const doughnutData = {
 
 const Dashboard = () => {
   return (
-    <div className="bg-white min-h-screen py-10">
-      <div className="max-w-7xl mx-auto px-4 space-y-10">
+    <div className="bg-white min-h-screen py-6 sm:py-10">
+      <div className="max-w-7xl mx-auto px-2 sm:px-4 space-y-8 sm:space-y-10">
         {/* Lodges Section */}
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="border p-4">
-            <img src="/imgs/dashboard-img-1.jpg" alt="Lodge 1" />
-            <div className="flex justify-between items-start mt-2">
-              <p className="text-mg mt-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="border p-2 sm:p-4">
+            <img src="/imgs/dashboard-img-1.jpg" alt="Lodge 1" className="w-full h-32 sm:h-auto object-cover rounded" />
+            <div className="flex flex-col sm:flex-row justify-between items-start mt-2">
+              <p className="text-xs sm:text-mg mt-2">
                 Spacious Self-Contain<br />
                 Located at miracle junction<br />
                 300,000 to pay 250,000
               </p>
-              <button className="ml-4 mt-8 px-4 py-1 border rounded text-blue-500 border-blue-500 hover:bg-blue-50 whitespace-nowrap">
+              <button className="ml-0 sm:ml-4 mt-4 sm:mt-8 px-3 sm:px-4 py-1 border rounded text-blue-500 border-blue-500 hover:bg-blue-50 whitespace-nowrap text-xs sm:text-base">
                 Edit
               </button>
             </div>
           </div>
 
-          <div className="col-span-2 grid md:grid-cols-2 h-[250px] gap-0">
-            <div className="bg-blue-600 text-white p-10 rounded">
-              <h3 className="text-2xl font-bold text-center">Add Your Lodge</h3>
-              <p className="text-base my-2">
-                Expand your reach by adding a new lodge. Join our community to connect with students and boost your renting effortlessly.
-              </p>
-              <div className="flex justify-center">
-                <button className="bg-white text-blue-600 px-5 py-1.5 rounded mt-2 whitespace-nowrap text-sm">
-                  Join Us
-                </button>
-              </div>
-            </div>
-            <img
-              src="/imgs/dashboard-img-2.jpg"
-              alt="Lodge 2"
-              className="rounded object-cover w-full h-[250px]"
-            />
-          </div>
+          {/* Responsive "Add Your Lodge" section with image */}
+        <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-0 min-h-0">
+  <div className="bg-blue-600 text-white p-4 sm:p-10 rounded flex flex-col justify-center h-40 sm:h-60"> {/* Set fixed height */}
+    <h3 className="text-lg sm:text-2xl font-bold text-center">Add Your Lodge</h3>
+    <p className="text-xs sm:text-base my-2 text-center sm:text-left">
+      Expand your reach by adding a new lodge. Join our community to connect with students and boost your renting effortlessly.
+    </p>
+    <div className="flex justify-center">
+      <button className="bg-white text-blue-600 px-4 sm:px-5 py-1.5 rounded mt-2 whitespace-nowrap text-xs sm:text-sm">
+        Join Us
+      </button>
+    </div>
+  </div>
+  <div className="overflow-hidden rounded h-40 sm:h-60 flex">
+    <img
+      src="/imgs/dashboard-img-2.jpg"
+      alt="Lodge 2"
+      className="object-cover w-full h-full rounded"
+      style={{ aspectRatio: "16/9" }}
+    />
+  </div>
+</div>
         </div>
 
         {/* Performance Metrics */}
-        <div className="grid md:grid-cols-3 gap-4">
-          <div className="border p-4 pb-1 overflow-hidden">
-            <img src="/imgs/dashboard-img-3.jpg" alt="Lodge 3" className="h-auto object-cover" />
-            <div className="flex justify-between items-start mt-2">
-              <p className="text-mg mt-2">
-                Spacious Self-Contain<br />
-                Located at miracle junction<br />
-                300,000 to pay 250,000
-              </p>
-              <button className="ml-4 mt-8 px-4 py-1 border rounded text-blue-500 border-blue-500 hover:bg-blue-50 whitespace-nowrap">
-                Edit
-              </button>
-            </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="border p-2 sm:p-4 pb-1 max-w-full md:max-w-[415px] max-h-[280px] sm:max-h-[430px] overflow-scroll">
+  <div className="overflow-hidden rounded h-48 sm:h-64"> 
+    <img
+      src="/imgs/dashboard-img-3.jpg"
+      alt="Lodge 3"
+      className="w-full h-full object-cover rounded"
+    />
+  </div>
+  <div className="flex flex-col sm:flex-row justify-between items-start mt-2">
+    <p className="text-sm sm:text-mg mt-2">
+      Spacious Self-Contain<br />
+      Located at miracle junction<br />
+      300,000 to pay 250,000
+    </p>
+    <button className=" ml-0 sm:ml-4 mt-4 sm:mt-8 px-3 sm:px-4 py-1 border rounded text-blue-500 border-blue-500 hover:bg-blue-50 whitespace-nowrap text-xs sm:text-base">
+      Edit
+    </button>
+  </div>
+</div>
 
-          <div className="p-4 rounded-lg shadow col-span-2 mt-0">
-            <h2 className="font-bold text-3xl mb-4">Performance Metrics</h2>
-            <p className="font-semibold text-sm mb-2">Occupancy Rates</p>
-            <div className="h-[400px]">
+          <div className="p-2 sm:p-4 rounded-lg shadow col-span-2 mt-0">
+            <h2 className="font-bold text-xl sm:text-3xl mb-2 sm:mb-4">Performance Metrics</h2>
+            <p className="font-semibold text-xs sm:text-sm mb-1 sm:mb-2">Occupancy Rates</p>
+            <div className="h-[220px] sm:h-[400px]">
               <Bar
                 data={barData}
                 options={{
@@ -119,80 +129,78 @@ const Dashboard = () => {
         </div>
 
         {/* Bottom section with image and doughnut */}
-        <div className="grid md:grid-cols-2 gap-4">
-          <div className="border p-4 pb-1 max-w-[415px] max-h-[400px] overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="border p-2 sm:p-4 pb-1 max-w-full md:max-w-[415px] max-h-[250px] sm:max-h-[400px] overflow-hidden">
             <img
               src="/imgs/dashboard-img-4.jpg"
               alt="Lodge 4"
-              className="w-full h-auto object-cover"
+              className="w-full h-32 sm:h-auto object-cover rounded"
             />
-            <div className="flex justify-between items-start mt-2">
-              <p className="text-mg mt-2">
+            <div className="flex flex-col sm:flex-row justify-between items-start mt-2">
+              <p className="text-xs sm:text-mg mt-2">
                 Spacious Self-Contain<br />
                 Located at miracle junction<br />
                 300,000 to pay 250,000
               </p>
-              <button className="ml-4 mt-8 px-4 py-1 border rounded text-blue-500 border-blue-500 hover:bg-blue-50 whitespace-nowrap">
+              <button className="ml-0 sm:ml-4 mt-4 sm:mt-8 px-3 sm:px-4 py-1 border rounded text-blue-500 border-blue-500 hover:bg-blue-50 whitespace-nowrap text-xs sm:text-base">
                 Edit
               </button>
             </div>
           </div>
 
-          <div className="p-4 rounded-lg shadow flex flex-col">
-  <p className="font-bold text-lg mb-4 text-left">Revenue Generated</p>
-  <div className="flex items-center gap-6"> 
-    {/* Doughnut Chart */}
-    <div className="w-94 h-74"> 
-      <Doughnut
-        data={doughnutData}
-        options={{
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false }, 
-          },
-        }}
-      />
-    </div>
+          <div className="p-2 sm:p-4 rounded-lg shadow flex flex-col">
+            <p className="font-bold text-base sm:text-lg mb-2 sm:mb-4 text-left">Revenue Generated</p>
+            <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6"> 
+              {/* Doughnut Chart */}
+              <div className="w-40 h-40 sm:w-60 sm:h-60"> 
+                <Doughnut
+                  data={doughnutData}
+                  options={{
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                      legend: { display: false }, 
+                    },
+                  }}
+                />
+              </div>
 
-    {/* Custom Legend */}
-    <div className="space-y-2 text-sm">
-      {doughnutData.labels.map((label, index) => (
-        <div key={index} className="flex items-center gap-2">
-          <div
-            className="w-3 h-3 rounded-full"
-            style={{ backgroundColor: doughnutData.datasets[0].backgroundColor[index] }}
-          ></div>
-          <span>{label}</span>
-        </div>
-      ))}
-    </div>
-  </div>
-</div>
-
+              {/* Custom Legend */}
+              <div className="space-y-2 text-xs sm:text-sm">
+                {doughnutData.labels.map((label, index) => (
+                  <div key={index} className="flex items-center gap-2">
+                    <div
+                      className="w-3 h-3 rounded-full"
+                      style={{ backgroundColor: doughnutData.datasets[0].backgroundColor[index] }}
+                    ></div>
+                    <span>{label}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
       {/* Footer Icons */}
-      <div className="flex justify-center gap-6 md:gap-[180px] mt-10 pb-6 flex-wrap">
-  <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-    <i className="ri-home-2-line"></i>
-  </div>
-  <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-    <i className="ri-bookmark-line"></i>
-  </div>
-  <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-    <i className="ri-add-circle-line"></i>
-  </div>
-  <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-    <i className="ri-message-2-line"></i>
-  </div>
-  <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-    <i className="ri-account-circle-line"></i>
-  </div>
-</div>
-
-    </>
+      <div className="flex justify-center gap-4 sm:gap-6 md:gap-[180px] mt-10 pb-6 flex-wrap">
+       <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
+          <i className="ri-home-2-line"></i>
+        </div>
+        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
+          <i className="ri-bookmark-line"></i>
+        </div>
+        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
+          <i className="ri-add-circle-line"></i>
+        </div>
+        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
+          <i className="ri-message-2-line"></i>
+        </div>
+        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
+          <i className="ri-account-circle-line"></i>
+        </div>
+      </div>
+    </div>
   );
 };
 
