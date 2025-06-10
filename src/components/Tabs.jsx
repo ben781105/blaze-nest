@@ -1,10 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
 
 const Tabs = () => {
   const tabs = [
-    { name: 'Dashboard', to: '/dashboard' },
-    { name: 'Add Lodge', to: '/add-lodge' },
-    { name: 'Manage Listing', to: '/manage-listing' },
+    { name: "Dashboard", to: "dashboard" },
+    { name: "Add Lodge", to: "add-lodge" },
+    { name: "Manage Listing", to: "manage-listing" },
   ];
 
   return (
@@ -25,12 +25,12 @@ const Tabs = () => {
           {tabs.map((tab) => (
             <NavLink
               key={tab.to}
-              to={tab.to}
+              to={`/agent/${tab.to}`}
               className={({ isActive }) =>
                 `transition px-2 py-1 sm:px-3 sm:py-1 border-b-2 ${
                   isActive
-                    ? 'border-white font-bold'
-                    : 'border-transparent hover:border-white'
+                    ? "border-white font-bold"
+                    : "border-transparent hover:border-white"
                 }`
               }
             >

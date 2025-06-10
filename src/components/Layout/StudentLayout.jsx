@@ -14,7 +14,7 @@ const StudentLayout = () => {
           </Link>
         </div>
       </nav>
-      <main className="flex-1 mt-15 md:mt-23 mb-20 p-4">
+      <main className="flex-1 mt-15  mb-20 ">
         <Outlet />
       </main>
       <BottomMenu />

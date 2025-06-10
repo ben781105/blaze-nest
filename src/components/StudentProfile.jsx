@@ -8,7 +8,7 @@ function StudentProfile() {
     <>
       <div className="hidden md:block min-h-screen w-50 fixed left-70 top-20 bg-[#DA8D36] -z-40 rounded-2xl"></div>
 
-      <div className="bg-white min-h-fit pb-4 rounded-2xl  flex flex-col gap-12 z-40 ml-0  md:mx-auto md:mr-auto: max-w-2xl border border-gray-200 shadow-md">
+      <div className="bg-white min-h-fit pb-4 rounded-2xl mt-11 flex flex-col gap-12 z-40 ml-4 mr-4 md:mx-auto md:mr-auto: max-w-2xl border  border-gray-200 shadow-md">
         <div className=" relative bg-gradient-to-b from-blue-400 via-blue-300 to-amber-100  h-30 w-full rounded-t-2xl">
           <span className="absolute top-10 left-5 p-2 bg-white rounded-full w-34 h-34 flex items-center justify-center">
             <img src="/imgs/sarah.png" alt="profile picture" />

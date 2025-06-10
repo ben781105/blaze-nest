@@ -1,5 +1,4 @@
-//App.jsx
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
@@ -12,19 +11,36 @@ import PasswordRecovery from "./pages/PasswordRecovery";
 import VerifyPassword from "./pages/VerifyPassword";
 import ResetPassword from "./pages/ResetPassword";
 import StudentProfile from "./components/StudentProfile";
-import DashboardLayout from "./components/DashboardLayout";
-import Dashboard from "./components/Dashboard";
+import AgentLayout from "./components/AgentLayout";
+import AgentDashboard from "./components/AgentDashboard";
 import AddLodge from "./components/AddLodge";
 import ManageListing from "./components/ManageListing";
+import SubCategoryPage from "./pages/lodgesSubcategoryPage";
+import LodgesPropertyLayout from "./components/Layout/lodgesPropertyLayout";
+import StudentBookmarks from "./components/studentBookmarks";
 
 function App() {
   return (
     <Routes>
       <Route index element={<HomePage />} />
       <Route path="/student-dashboard" element={<StudentLayout />}>
-        <Route index element={<StudentDashboard />} />
+        <Route index element={<Navigate to="/student-dashboard/home" />} />
         <Route path="/student-dashboard/profile" element={<StudentProfile />} />
+        <Route path="/student-dashboard/home" element={<StudentDashboard />} />
+        <Route path="/student-dashboard/saved" element={<StudentBookmarks />} />
         <Route path="/student-dashboard/:category" element={<CategoryPage />} />
+        <Route
+          path="/student-dashboard/lodges&property"
+          element={<LodgesPropertyLayout />}
+        >
+          <Route
+            index
+            element={
+              <Navigate to="/student-dashboard/lodges&property/lodges" />
+            }
+          />
+          <Route path=":subcategory" element={<SubCategoryPage />} />
+        </Route>
       </Route>
       <Route path="/auth" element={<AuthOptions />} />
       <Route
@@ -67,10 +83,11 @@ function App() {
           </ProtectedAuthRoute>
         }
       />
-      <Route element={<DashboardLayout />}>
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/add-lodge" element={<AddLodge />} />
-        <Route path="/manage-listing" element={<ManageListing />} />
+      <Route path="/agent" element={<AgentLayout />}>
+        <Route index element={<Navigate to="/agent/dashboard" />} />
+        <Route path="/agent/dashboard" element={<AgentDashboard />} />
+        <Route path="/agent/add-lodge" element={<AddLodge />} />
+        <Route path="/agent/manage-listing" element={<ManageListing />} />
       </Route>
     </Routes>
   );

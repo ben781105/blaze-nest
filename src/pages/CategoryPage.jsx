@@ -1,172 +1,288 @@
-import { useState } from "react";
-import { ChevronLeft, Search } from "lucide-react";
-import {
-  Link,
-  //  useParams
-} from "react-router-dom";
+import React from "react";
+import { useParams } from "react-router-dom";
+import SavedIcon from "../components/icons/SavedIcon";
+import { Search } from "lucide-react";
+import { useState,useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 
-function CategoryPage() {
-  //   const { category } = useParams();
+const listings = [
+  {
+    id: 1,
+    category: "phones&gadgets",
+    title: "Dell Laptop for sale",
+    price: "₦110,000.00",
+    image: "/imgs/laptop.png",
+    vendorImage:"/imgs/teni.png"
+  },
+  {
+    id: 2,
+    category: "furniture",
+    title: "Bed Stand and front table",
+    price: "₦225,000.00",
+    image: "/imgs/cozy-lodge.png",
+    vendorImage:"/imgs/sarah.png"
+  },
+  {
+    id: 3,
+    category: "furniture",
+    title: "Nice Gaming/Working Chair",
+    price: "₦120,000.00",
+    image: "/imgs/furniture4.jpg",
+    vendorImage:"/imgs/sam.png"
+  },
+  {
+    id: 4,
+    category: "furniture",
+    title: "Couch 3 sitters",
+    price: "₦100,000.00",
+    image: "/imgs/furniture2.jpg",
+    vendorImage:"/imgs/sarah.png"
+  },
+  {
+    id: 5,
+    category: "furniture",
+    title: "Neat Tble&chair",
+    price: "₦240,000.00",
+    image: "/imgs/furniture3.jpg",
+    vendorImage:"/imgs/teni.png"
+  },
+  {
+    id: 6,
+    category: "furniture",
+    title: "Nice Dining Table",
+    price: "₦150,000.00",
+    image: "/imgs/furniture1.jpg",
+    vendorImage:"/imgs/petri.png"
+  },
+  {
+    id: 7,
+    category: "furniture",
+    title: "Multi-purpose Wardrope",
+    price: "₦120,000.00",
+    image: "/imgs/furniture2.jpg",
+    vendorImage:"/imgs/jeny.png"
+  },
+  {
+    id: 8,
+    category: "furniture",
+    title: "6 by 6 Bed",
+    price: "₦120,000.00",
+    image: "/imgs/furniture7.jpg",
+    vendorImage:"/imgs/adam.png"
+  },
+  {
+    id: 9,
+    category: "furniture",
+    title: "Nice Wardrope",
+    price: "₦220,000.00",
+    image: "/imgs/furniture7.jpg",
+    vendorImage:"/imgs/jeny.png"
+  },
+  {
+    id: 10,
+    category: "phones&gadgets",
+    title: "gadgetfor sale",
+    price: "₦90,000.00",
+    image: "/imgs/gadgets.png",
+    vendorImage:"/imgs/sam.png",
+  },
+  {
+    id: 11,
+    category: "phones&gadgets",
+    title: "dell latitude 7350",
+    price: "₦290,000.00",
+    image: "/imgs/dell latitude 7350.jpg",
+    vendorImage:"/imgs/yurt.png"
+  },
+  {
+    id: 12,
+    category: "phones&gadgets",
+    title: "samsung phone",
+    price: "₦290,000.00",
+    image: "/imgs/samsung 12.2.jpg",
+    vendorImage:"/imgs/sam.png"
+  },
+  {
+    id: 13,
+    category: "cosmetics",
+    title: "beauty eye lash",
+    price: "₦290,000.00",
+    image: "/imgs/cosmetics1.jpg",
+    vendorImage:"/imgs/sarah.png"
+  },
+  {
+    id: 14,
+    category: "cosmetics",
+    title: "duodrant",
+    price: "₦80,000.00",
+    image: "/imgs/cosmetics2.jpg",
+    vendorImage:"/imgs/sam.png"
+  },
+  {
+    id: 15,
+    category: "clothes&Accessories",
+    title: "white shirt and pants",
+    price: "₦290,000.00",
+    image: "/imgs/clothes1.jpg",
+    vendorImage:"/imgs/petri.png"
+  },
+  {
+    id: 16,
+    category: "clothes&Accessories",
+    title: "brown hoodie",
+    price: "₦290,000.00",
+    image: "/imgs/clothes2.jpg",
+    vendorImage:"/imgs/teni.png"
+  },
+  {
+    id: 17,
+    category: "clothes&Accessories",
+    title: "casual wear",
+    price: "₦290,000.00",
+    image: "/imgs/clothes3.jpg",
+    vendorImage:"/imgs/jeny.png"
+  },
+  {
+    id: 18,
+    category: "clothes&Accessories",
+    title: "travel clothes",
+    price: "₦290,000.00",
+    image: "/imgs/clothes4.jpg",
+    vendorImage:"/imgs/yurt.png"
+  },
+  {
+    id: 19,
+    category: "Cars&Automobile",
+    title: "lamborgini",
+    price: "₦1,290,000.00",
+    image: "/imgs/car1.jpg",
+    vendorImage:"/imgs/sam.png"
+  },
+  {
+      id: 21,
+    category: "Cars&Automobile",
+    title: "Audi sport",
+    price: "₦1,290,000.00",
+    image: "/imgs/car2.jpg",
+    vendorImage:"/imgs/yurt.png"
+  },
+  {
+    id: 22,
+    category: "Cars&Automobile",
+    title: "Mc Claren",
+    price: "₦3,290,000.00",
+    image: "/imgs/car3.jpg",
+    vendorImage:"/imgs/sarah.png"
+  },
+  {
+    id: 23,
+    category: "Cars&Automobile",
+    title: "Nissan",
+    price: "₦2,290,000.00",
+    image: "/imgs/car4.jpg",
+    vendorImage:"/imgs/adam.png"
+  },
+];
+
+export default function CategoryPage() {
+  const { category } = useParams();
   const [searchQuery, setSearchQuery] = useState("");
+  const [bookmarked,setBookmarked] = useState([])
+  const navigate = useNavigate();
 
-  const listings = [
-    {
-      id: 1,
-      title: "Spacious Self-Contain",
-      location: "Located at miracle junction",
-      price: { from: "300,000", to: "250,000" },
-      image: "/imgs/banner_img1.png",
-      agentName: "Obi",
-      agentImage: "/imgs/agent1.png",
-    },
-    {
-      id: 2,
-      title: "Spacious Self-Contain",
-      location: "Located at Next-Level Junction",
-      price: { from: "300,000", to: "250,000" },
-      image: "/imgs/banner_img1.png",
-      agentName: "Alexi",
-      agentImage: "/imgs/agent2.png",
-    },
-    {
-      id: 3,
-      title: "Spacious 2Bedroom Apartment",
-      location: "Located at Next-Level Junction",
-      price: { from: "700,000", to: "500,000" },
-      image: "/imgs/banner_img1.png",
-      agentName: "Alexi",
-      agentImage: "/imgs/agent2.png",
-    },
-    {
-      id: 4,
-      title: "Spacious Self-Contain",
-      location: "Located at miracle junction",
-      price: { from: "300,000", to: "250,000" },
-      image: "/imgs/banner_img1.png",
-      agentName: "Obi",
-      agentImage: "/imgs/agent1.png",
-    },
-    {
-      id: 5,
-      title: "Spacious Self-Contain",
-      location: "Located at miracle junction",
-      price: { from: "300,000", to: "250,000" },
-      image: "/imgs/banner_img1.png",
-      agentName: "Obi",
-      agentImage: "/imgs/agent1.png",
-    },
-    {
-      id: 6,
-      title: "Spacious Self-Contain",
-      location: "Located at miracle junction",
-      price: { from: "300,000", to: "250,000" },
-      image: "/imgs/banner_img1.png",
-      agentName: "Obi",
-      agentImage: "/imgs/agent1.png",
-    },
-  ];
+  const filteredListings = listings.filter(
+    (item) => item.category.toLowerCase() === category.toLowerCase()
+  );
+  const formattedCategory = category
+    .replace(/&/g, " & ")
+    .replace(/-/g, " ")
+    .replace(/\b\w/g, (l) => l.toUpperCase());
 
-  // Filter options for the Lodges/Property category
-  const filterOptions = [
-    { id: "lodges", name: "Lodges" },
-    { id: "land", name: "Land/Property" },
-    { id: "commercial", name: "Commercial Property" },
-  ];
+    useEffect(()=>{
+    localStorage.setItem("studentBookmarks",JSON.stringify(bookmarked))
+    },[bookmarked])
+  
+ const toggleBookmark =(listing) =>{
+  const isBookmarked = bookmarked.some((b) => b.id === listing.id)
+  const updated = isBookmarked
+  ? bookmarked.filter((b)=> b.id !== listing.id):
+  [...bookmarked,listing]
+    setBookmarked(updated)
+ }
 
   return (
-    <div className="flex flex-col min-h-screen">
-      {/* Search Bar */}
-      <div className="bg-amber-600 p-4">
-        <div className="bg-amber-600 mt-15 px-4 py-8">
-          <div className="relative w-full">
-            <input
-              type="text"
-              placeholder="I am looking for......."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full p-4 rounded bg-white outline-none border-0 shadow-sm"
-            />
-            <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
-              <Search className="text-gray-400" size={24} />
-            </div>
-          </div>
-        </div>
-      </div>
+    <section>
+      <header className=" flex bg-amber-600 px-4 py-8">
+        <div className="relative w-full">
+          <img 
+          className="absolute left-2 top-1/2 cursor-pointer transform -translate-y-1/2"
+          onClick={() => navigate(-1)}
+          src="/svgs/left-arrow-icon.svg" alt="" width={22} 
+          />
 
-      {/* Filter Options */}
-      <div className="flex space-x-8 items-center justify-evenly p-4 overflow-x-auto">
-        {filterOptions.map((option) => (
-          <button
-            key={option.id}
-            className={`px-4 py-2 w-auto min-w-[12rem] rounded-md border whitespace-nowrap text-sm ${
-              option.id === "lodges" ? "bg-amber-600 " : "bg-white"
-            }`}
-          >
-            {option.name}
-          </button>
-        ))}
-      </div>
+              <input
+                type="text"
+                placeholder="Find Category......."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full p-3 pl-12 rounded bg-white outline-none border-0 shadow-sm"
+              />
+              <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                <Search className="text-gray-400" size={24} />
+              </div>
+         </div>
+      </header>
+    <div className="p-4 md:p-8 relative">
+      
+      <h1 className="text-2xl md:text-4xl font-bold text-center mb-6">
+        {formattedCategory}
+      </h1>
 
-      {/* Property Listings */}
-      <main className="flex-grow bg-gray-100 p-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-          {listings.map((listing) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 overflow-x-hidden md:grid-cols-3 gap-6">
+        {filteredListings.length === 0 ? (
+          <p className="col-span-full text-center text-gray-500">
+            No listings found in this category.
+          </p>
+        ) : (
+          filteredListings.map((listing) => {
+          const isBookmarked = bookmarked.some((b) => b.id === listing.id)
+          return(
             <div
               key={listing.id}
-              className="bg-white border rounded-lg overflow-hidden shadow"
+              className="bg-white border border-gray-300 relative shadow-md hover:shadow-lg transition"
             >
-              <div className="relative h-48">
+              <div className="h-50 w-full">
                 <img
-                  src={listing.image}
-                  alt={listing.title}
-                  className="w-full h-full object-cover"
-                />
+                src={listing.image}
+                alt={listing.title}
+                className="w-full h-full object-cover  mb-2"
+              />
               </div>
-              <div className="p-3 flex justify-between  ">
-                <div className="">
-                  <h3 className="font-medium">{listing.title}</h3>
-                  <p className="text-sm text-gray-600">{listing.location}</p>
-                  <p className="text-sm">
-                    <span className="line-through">{listing.price.from}</span>{" "}
-                    to pay {listing.price.to}
-                  </p>
-                </div>
-
-                <button className=" p-2 bg-white rounded-full">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                    />
-                  </svg>
+              <h2 className="mt-4 ml-4 mr-4 text-sm">{listing.title}</h2>
+              <p className=" ml-4 mr-4">{listing.price}</p>
+              <div className="flex w-full p-4 items-center gap-3">
+                <button className="mt-2 w-full cursor-pointer bg-blue-500 text-white py-2 rounded hover:bg-blue-600">
+                Message Vendor
                 </button>
-              </div>
-              <div className="px-3 pb-3 flex justify-between items-center">
-                <button className="border shadow-sm text-gray-800 text-sm px-3 py-1 rounded-md">
-                  Message Agent {listing.agentName}
-                </button>
-                <div className="w-8 h-8 rounded-full overflow-hidden">
+                
                   <img
-                    src={listing.agentImage}
-                    alt={`Agent ${listing.agentName}`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                  className="object-cover w-13 h-13 rounded-full"
+                  src={listing.vendorImage} 
+                  alt="vendor" />
+                
               </div>
+              <span  
+              onClick={() => toggleBookmark(listing)}
+              className={`absolute top-54 right-5 border p-2 rounded-full ${isBookmarked ? "bg-primary text-white" : "bg-white text-gray-500"} cursor-pointer`}>
+                  <SavedIcon
+                  className="h-7 w-7"
+                  />
+              </span>
             </div>
-          ))}
-        </div>
-      </main>
+          )})
+        )}
+      </div>
     </div>
+    </section>
   );
 }
-
-export default CategoryPage;
