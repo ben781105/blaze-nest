@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-import React from "react";
 
 const lodges = [
   {
@@ -116,10 +114,3 @@ const ManageListing = () => (
 );
 
 export default ManageListing;
-=======
-const ManageListing = () => {
-  return <div>ManageListing</div>;
-};
-
-export default ManageListing;
->>>>>>> main
