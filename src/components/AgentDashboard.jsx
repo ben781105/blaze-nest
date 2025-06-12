@@ -9,7 +9,7 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
-import BottomMenu from "./BottomMenu"; // Import the BottomMenu
+import BottomMenu from "./BottomMenu"; 
 
 ChartJS.register(
   CategoryScale,
@@ -182,7 +182,7 @@ const Dashboard = () => {
         </div>
       </div>
 
-      {/* Remove the old footer icons and use BottomMenu */}
+    
       <BottomMenu />
     </div>
   );
