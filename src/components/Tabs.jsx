@@ -20,14 +20,14 @@ const Tabs = () => {
       </div>
 
       {/* Responsive Navigation Tabs */}
-      <div className="bg-[#DE8F35] py-4 px-4 w-full">
-        <div className="flex flex-col sm:flex-row justify-center items-center gap-4 sm:gap-8 font-semibold text-base text-white">
+      <div className="bg-[#DE8F35] py-3 px-4 w-full">
+        <div className="flex flex-col sm:flex-row sm:justify-center sm:items-center gap-3 sm:gap-8 text-white text-sm sm:text-base font-medium">
           {tabs.map((tab) => (
             <NavLink
               key={tab.to}
               to={`/agent/${tab.to}`}
               className={({ isActive }) =>
-                `transition px-3 py-1 border-b-2 ${
+                `transition px-2 py-1 sm:px-3 sm:py-1 border-b-2 ${
                   isActive
                     ? "border-white font-bold"
                     : "border-transparent hover:border-white"

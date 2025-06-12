@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import BottomMenu from "./BottomMenu";
 
 const AddLodge = () => {
   const [lodgeData, setLodgeData] = useState({
-    lodgeName: '',
-    location: '',
-    pricePerYear: '',
+    lodgeName: "",
+    location: "",
+    pricePerYear: "",
     image: null,
   });
 
@@ -26,26 +27,35 @@ const AddLodge = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto pt-2 px-4 pb-8">
-  <h2 className="text-lg font-bold mb-2">Add photo</h2>
-  <p className="text-sm text-gray-600 mb-3">First picture - is the title picture</p>
+    <div className="w-full px-4 sm:px-6 md:px-8 lg:px-10 xl:px-12 max-w-lg mx-auto pt-6 pb-12">
+      <h2 className="text-xl sm:text-2xl font-bold mb-2">Add photo</h2>
+      <p className="text-sm text-gray-600 mb-4">
+        First picture - is the title picture
+      </p>
 
-  <div className="flex flex-col items-start mb-4">
-    <label className="flex items-center justify-center bg-orange-200 text-5xl text-gray-700 w-24 h-24 rounded-md cursor-pointer mb-2">
-      +
-      <input type="file" accept=".jpg,.png" onChange={handleImageUpload} className="hidden" />
-    </label>
-    <p className="text-xs text-gray-500">Supported format are *.jpg and *.png</p>
-  </div>
+      <div className="flex flex-col items-start mb-4">
+        <label className="flex items-center justify-center bg-orange-200 text-5xl text-gray-700 w-24 h-24 rounded-md cursor-pointer mb-2">
+          +
+          <input
+            type="file"
+            accept=".jpg,.png"
+            onChange={handleImageUpload}
+            className="hidden"
+          />
+        </label>
+        <p className="text-xs text-gray-500">
+          Supported format are *.jpg and *.png
+        </p>
+      </div>
 
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
+      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
           name="lodgeName"
           placeholder="Lodge Name"
           value={lodgeData.lodgeName}
           onChange={handleChange}
-          className="border rounded px-4 py-2"
+          className="border rounded px-4 py-2 w-full"
           required
         />
         <input
@@ -54,7 +64,7 @@ const AddLodge = () => {
           placeholder="Location"
           value={lodgeData.location}
           onChange={handleChange}
-          className="border rounded px-4 py-2"
+          className="border rounded px-4 py-2 w-full"
           required
         />
         <input
@@ -63,10 +73,13 @@ const AddLodge = () => {
           placeholder="Price per year"
           value={lodgeData.pricePerYear}
           onChange={handleChange}
-          className="border rounded px-4 py-2"
+          className="border rounded px-4 py-2 w-full"
           required
         />
-        <button type="submit" className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+        <button
+          type="submit"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full"
+        >
           Post
         </button>
       </form>
