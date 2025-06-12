@@ -61,7 +61,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Responsive "Add Your Lodge" section with image */}
+         
           <div className="col-span-2 grid grid-cols-1 md:grid-cols-2 gap-0 min-h-0">
             <div className="bg-blue-600 text-white p-4 sm:p-10 rounded flex flex-col justify-center h-40 sm:h-60">
               <h3 className="text-lg sm:text-2xl font-bold text-center">Add Your Lodge</h3>
@@ -85,7 +85,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Performance Metrics */}
+       
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="border p-2 sm:p-4 pb-1 max-w-full md:max-w-[415px] max-h-[280px] sm:max-h-[430px] overflow-scroll">
             <div className="overflow-hidden rounded h-48 sm:h-64">
@@ -128,7 +128,7 @@ const Dashboard = () => {
           </div>
         </div>
 
-        {/* Bottom section with image and doughnut */}
+     
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="border p-2 sm:p-4 pb-1 max-w-full md:max-w-[415px] max-h-[250px] sm:max-h-[400px] overflow-hidden">
             <img
@@ -151,7 +151,7 @@ const Dashboard = () => {
           <div className="p-2 sm:p-4 rounded-lg shadow flex flex-col">
             <p className="font-bold text-base sm:text-lg mb-2 sm:mb-4 text-left">Revenue Generated</p>
             <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6">
-              {/* Doughnut Chart */}
+            
               <div className="w-40 h-40 sm:w-60 sm:h-60">
                 <Doughnut
                   data={doughnutData}
@@ -165,7 +165,7 @@ const Dashboard = () => {
                 />
               </div>
 
-              {/* Custom Legend */}
+           
               <div className="space-y-2 text-xs sm:text-sm">
                 {doughnutData.labels.map((label, index) => (
                   <div key={index} className="flex items-center gap-2">
