@@ -8,7 +8,7 @@ const BottomMenu = ({ menuData }) => {
       <nav className="flex justify-around p-4">
         <ul className="flex justify-around w-full">
           {menuData.map((item, index) => {
-            const isActive = location.pathname === item.path;
+            const isActive = location.pathname.startsWith(item.path);
 
             return (
               <li
