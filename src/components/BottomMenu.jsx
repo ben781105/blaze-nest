@@ -7,7 +7,7 @@ const BottomMenu = ({ menuData }) => {
     <footer className="bg-white fixed bottom-0 w-full h-20 z-50">
       <nav className="flex justify-around p-4">
         <ul className="flex justify-around w-full">
-          {menuData.map((item, index) => {
+          {menuData?.map((item, index) => {
             const isActive = location.pathname === item.path;
 
             return (

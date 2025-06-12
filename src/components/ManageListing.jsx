@@ -1,4 +1,4 @@
-import BottomMenu from './BottomMenu';
+import BottomMenu from "./BottomMenu";
 
 const lodges = [
   {
@@ -93,8 +93,6 @@ const ManageListing = () => (
         </div>
       ))}
     </div>
-    {/* Bottom Menu */}
-    <BottomMenu />
   </div>
 );
 

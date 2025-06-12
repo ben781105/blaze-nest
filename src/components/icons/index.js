@@ -6,3 +6,4 @@ export { default as SavedIcon } from "./SavedIcon";
 export { default as CartIcon } from "./CartIcon";
 export { default as MessageIcon } from "./MessageIcon";
 export { default as ProfileIcon } from "./ProfileIcon";
+export { default as AddIconCircled } from "./AddIconCircled";
