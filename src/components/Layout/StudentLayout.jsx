@@ -1,8 +1,34 @@
-import React from "react";
-import Navbar from "../Navbar";
 import BottomMenu from "../BottomMenu";
 import { Outlet } from "react-router-dom";
 import { Link } from "react-router-dom";
+import {
+  HomeIcon,
+  SavedIcon,
+  CartIcon,
+  MessageIcon,
+  ProfileIcon,
+} from "../icons/index";
+
+const bottomMenuData = [
+  {
+    path: "/student-dashboard/home",
+    icon: <HomeIcon className="h-6 w-6" />,
+  },
+  {
+    path: "/student-dashboard/saved",
+    icon: <SavedIcon className="h-6 w-6" />,
+  },
+  { path: "/student-dashboard/cart", icon: <CartIcon className="h-6 w-6" /> },
+  {
+    path: "/student-dashboard/messages",
+    icon: <MessageIcon className="h-6 w-6" />,
+  },
+  {
+    path: "/student-dashboard/profile",
+    icon: <ProfileIcon className="h-6 w-6" />,
+  },
+];
+
 const StudentLayout = () => {
   return (
     <div className="flex flex-col min-h-screen relative">
@@ -17,7 +43,7 @@ const StudentLayout = () => {
       <main className="flex-1 mt-15  mb-20 ">
         <Outlet />
       </main>
-      <BottomMenu />
+      <BottomMenu menuData={bottomMenuData} />
     </div>
   );
 };

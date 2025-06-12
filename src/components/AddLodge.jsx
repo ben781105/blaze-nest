@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import BottomMenu from './BottomMenu';
 
 const AddLodge = () => {
   const [lodgeData, setLodgeData] = useState({
@@ -74,24 +75,8 @@ const AddLodge = () => {
         </form>
       </div>
 
-      {/* Footer Icons */}
-      <div className="flex justify-center gap-6 md:gap-[180px] mt-10 pb-6 flex-wrap">
-        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-          <i className="ri-home-2-line"></i>
-        </div>
-        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-          <i className="ri-bookmark-line"></i>
-        </div>
-        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-          <i className="ri-add-circle-line"></i>
-        </div>
-        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-          <i className="ri-message-2-line"></i>
-        </div>
-        <div className="group cursor-pointer text-2xl text-gray-600 hover:text-orange-500 transition-all duration-200 rounded-full p-3 hover:bg-orange-100">
-          <i className="ri-account-circle-line"></i>
-        </div>
-      </div>
+      {/* Bottom Menu */}
+      <BottomMenu />
     </>
   );
 };
