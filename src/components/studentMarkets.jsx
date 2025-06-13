@@ -42,7 +42,7 @@ function StudentMarkets() {
   };
 
   return (
-    <section className="flex-grow bg-white pl-4 pr-4 pt-6">
+    <section className="flex-grow bg-white pl-4 md:pl-9 pr-4 pt-6">
       {!isPostAdd && (
         <>
       <h1 className="text-2xl md:text-4xl font-semibold">Select category</h1>
@@ -51,7 +51,7 @@ function StudentMarkets() {
           const content = (
             <div
               key={category.id}
-              className="relative flex overflow-hidden w-full h-30 sm:h-50 md:h-70 shadow-lg hover:shadow-md transition-shadow cursor-pointer"
+              className="relative flex overflow-hidden w-full h-30 sm:h-50 md:h-40  shadow-lg hover:shadow-md transition-shadow cursor-pointer"
               onClick={()=>{
                 setSelectedCategory(category.name);
                 if(category.hasSubcategories){
@@ -64,15 +64,16 @@ function StudentMarkets() {
                 }
               }}
             >
-              <div className="w-1/3  h-full overflow-hidden">
+              <div className="w-1/3 md:w-50  h-full overflow-hidden">
                 <img
                   src={category.image}
                   alt={category.name}
                   className="w-full h-full object-cover"
                 />
               </div>
+              
               <div className="flex items-center justify-between flex-1 p-3">
-                <p className="text-xl">{category.name|| selectedCategory}</p>
+                <p className="text-xl md:pl-7">{category.name|| selectedCategory}</p>
 
                 {category.hasSubcategories && (
                   <img
@@ -149,6 +150,7 @@ function StudentMarkets() {
       </AnimatePresence>
       </>
       )}
+      
       <Outlet/>
     </section>
   );
