@@ -19,8 +19,7 @@ import SubCategoryPage from "./pages/LodgesSubcategoryPage";
 import LodgesPropertyLayout from "./components/Layout/LodgesPropertyLayout";
 import StudentBookmarks from "./components/StudentBookmarks";
 import StudentMarkets from "./components/StudentMarkets";
-import PostAdd from "./components/postAdd";
-
+import PostAdd from "./components/postAdd"
 function App() {
   return (
     <Routes>
