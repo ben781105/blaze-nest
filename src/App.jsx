@@ -19,7 +19,8 @@ import SubCategoryPage from "./pages/LodgesSubcategoryPage";
 import LodgesPropertyLayout from "./components/Layout/LodgesPropertyLayout";
 import StudentBookmarks from "./components/StudentBookmarks";
 import StudentMarkets from "./components/StudentMarkets";
-import PostAdd from "./components/PostAdd"
+import PostAdd from "./components/postAdd";
+
 function App() {
   return (
     <Routes>
@@ -30,7 +31,7 @@ function App() {
         <Route path="/student-dashboard/home" element={<StudentDashboard />} />
         <Route path="/student-dashboard/saved" element={<StudentBookmarks />} />
         <Route path="/student-dashboard/cart" element={<StudentMarkets />}>
-          <Route path="post-add" element={<PostAdd />} />
+          <Route path="post-add" element={<PostAdd/>}/>
         </Route>
         <Route path="/student-dashboard/:category" element={<CategoryPage />} />
         <Route
