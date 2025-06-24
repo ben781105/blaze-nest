@@ -1,20 +1,14 @@
 
 import { useSelector} from "react-redux";
-import { useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const VerificationProgress = () => {
-  const {role} =useParams();
+
   const user = useSelector((state) => state.user);
   const steps = useSelector((state) => state.user.verificationSteps);
   const startedAt = useSelector((state) => state.user.VerificationStartedAt);
   const progressPercent = (steps.filter(s => s.completed).length / steps.length) * 100;
 
-  useEffect(()=>{
-    if(role !== user.role){
-      // Redirect or handle the case where the role does not match
-      console.error("Role mismatch: expected", user.role, "but got", role);
-    }   
-  }, [role, user.role]);
+ const navigate = useNavigate();
   return (
 
     <section className="bg-white w-full overflow-x-hidden  pb-4 flex flex-col gap-12  ">
@@ -22,10 +16,15 @@ const VerificationProgress = () => {
         <span className="absolute top-10 left-5 p-2 bg-white rounded-full w-34 h-34 flex items-center justify-center">
           {<img src={user.profileImage || '/svgs/camera-icon.svg'} alt="profile" /> }
         </span>
-
+         
+          <span className="absolute cursor-pointer  top-4 right-5 p-2 bg-white rounded-full w-8 h-8 flex items-center justify-center" 
+          onClick={() => navigate("/student-dashboard/profile")}>
+            <img src="/svgs/cancel.svg" width={30}/>
+          </span>
+        
         <div className="flex text-center md:place-self-center place-self-start justify-start flex-col">
             <h1 className="text-white">Account Verification</h1>
-            <p className="text-sm text-blue-400">Complete the Verification to Unlock All Features</p>
+            <p className="text-sm text-blue-800">Complete the Verification to Unlock All Features</p>
         </div>
       </div>
 

@@ -19,7 +19,9 @@ const ProfileLayout = () => {
         {user.isVerified? <p className="text-sm">Explore,List and Enjoy the Fun of Blaze Nest</p>:
         <p className="text-sm">Verify Your Account to unlock All Features</p>}
        </div>
-        
+
+        <span className="absolute top-4 right-5 p-2 bg-white rounded-full w-8 h-8 flex items-center justify-center"></span>
+
         <span className="absolute top-10 left-5 p-2 bg-white rounded-full w-28 h-28 sm:w-34  sm:h-34 flex items-center justify-center">
           {<img src={user.profileImage || '/svgs/camera-icon.svg'} alt="profile" /> }
         </span>
