@@ -21,6 +21,8 @@ import StudentBookmarks from "./components/StudentBookmarks";
 import StudentMarkets from "./components/StudentMarkets";
 import PostAdd from "./components/postAdd";
 import VerificationProgress from "./components/VerificationProgress";
+import ProfileSettings from "./components/ProfileSettings";
+import PersonalDetails from "./components/PersonalDetails";
 
 
 function App() {
@@ -99,9 +101,25 @@ function App() {
       <Route
         path="/verification-progress/:role"
         element={
-         
+          <ProtectedAuthRoute>
             <VerificationProgress />
-       
+         </ProtectedAuthRoute>
+        }
+      />
+       <Route
+        path="/profile-settings/:role"
+        element={
+          <ProtectedAuthRoute>
+            <ProfileSettings/>
+         </ProtectedAuthRoute>
+        }
+      />
+       <Route
+        path="/personal-details/:role"
+        element={
+          
+            <PersonalDetails/>
+         
         }
       />
     </Routes>

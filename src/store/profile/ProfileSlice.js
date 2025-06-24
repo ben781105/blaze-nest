@@ -86,6 +86,7 @@ const profileSlice = createSlice({
     setUser(state, action) {
       return { ...state, ...action.payload };
     },
+ 
   },
 });
 

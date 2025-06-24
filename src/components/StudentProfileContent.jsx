@@ -1,8 +1,8 @@
 import {  useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link,useNavigate} from "react-router-dom";
 const StudentProfileContent = ({verification}) => {
   const user = useSelector((state) => state.user);
-
+  const navigate = useNavigate();
   return (
     <div className="  flex flex-col px-7 relative">
       <p className="text-xl font-bold">{user.name}</p>
@@ -11,8 +11,11 @@ const StudentProfileContent = ({verification}) => {
        
        
       <div className="flex gap-5 mt-7 flex-wrap">
-        <button className="bg-blue-500 text-white py-2 px-5 rounded-md h-10">Edit Profile</button>
-        <button className="bg-white text-blue-500 py-2 px-5 rounded-md h-10 border border-blue-500">Settings</button>
+        <button className="bg-blue-500 cursor-pointer text-white py-2 px-5 rounded-md h-10">Edit Profile</button>
+        <button className="bg-white cursor-pointer text-blue-500 py-2 px-5 rounded-md h-10 border border-blue-500"
+        onClick={() => navigate(`/profile-settings/${user.role}`)}>
+          Settings
+        </button>
       </div>
        
         {!verification && 
