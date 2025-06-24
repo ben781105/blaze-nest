@@ -20,6 +20,8 @@ import LodgesPropertyLayout from "./components/Layout/LodgesPropertyLayout";
 import StudentBookmarks from "./components/StudentBookmarks";
 import StudentMarkets from "./components/StudentMarkets";
 import PostAdd from "./components/postAdd";
+import VerificationProgress from "./components/VerificationProgress";
+
 
 function App() {
   return (
@@ -94,6 +96,14 @@ function App() {
         <Route path="/agent/add-lodge" element={<AddLodge />} />
         <Route path="/agent/manage-listing" element={<ManageListing />} />
       </Route>
+      <Route
+        path="/verification-progress/:role"
+        element={
+         
+            <VerificationProgress />
+       
+        }
+      />
     </Routes>
   );
 }

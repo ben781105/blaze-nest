@@ -1,8 +1,8 @@
 import { useSelector,useDispatch } from "react-redux";
 import StudentProfileContent from "../StudentProfileContent";
 import AgentProfileContent from "../AgentProfileContent";
-import  userIcon from '/svgs/user-icon.svg'
 import { setPublicProfile } from "../../store/profile/ProfileSlice";
+
 
 const ProfileLayout = () => {
   const user = useSelector((state) => state.user);
@@ -21,10 +21,13 @@ const ProfileLayout = () => {
        </div>
         
         <span className="absolute top-10 left-5 p-2 bg-white rounded-full w-28 h-28 sm:w-34  sm:h-34 flex items-center justify-center">
-          {<img src={user.profileImage || userIcon} alt="profile" />}
-          
+          {<img src={user.profileImage || '/svgs/camera-icon.svg'} alt="profile" /> }
         </span>
-        {user.isVerified&&<span className="absolute left-32 top-36">✅</span>}
+
+        {user.isVerified&& <img src="/svgs/verified-badge-icon.svg" alt="verified" width={28} className="absolute left-32 top-36" />}
+         
+       
+         
 
           <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-md absolute top-40 right-0 md:right-20">
             <span className="text-sm"> set to {user.isPublic? 'Private':'Public'}</span>
@@ -43,7 +46,7 @@ const ProfileLayout = () => {
       </div>
      
 
-      {user.role === "student" ? <StudentProfileContent /> : <AgentProfileContent />}
+      {user.role === "student" ? <StudentProfileContent verification={user.VerificationInProgress} /> : <AgentProfileContent  verification= {user.VerificationInProgress}/>}
 
     
 
@@ -59,7 +62,7 @@ const ProfileLayout = () => {
         <h1>My Listings</h1>
         <div className="w-full flex gap-6 md:gap-5 flex-col text-sm">
           {user.listings.map((listing)=>
-            <div key={listing} className="flex w-full md:gap-6  h-fit  ">
+            <div key={listing.id} className="flex w-full md:gap-6  h-fit  ">
              <div className="w-1/2 md:w-50 md:h-40 h-40 ">
               <img className="w-full h-full object-fit" src={listing.image} alt={listing.name} />
              </div>
