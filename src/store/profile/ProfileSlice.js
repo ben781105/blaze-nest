@@ -45,9 +45,35 @@ const initialState = {
   isVerified:false,
   bio:'A well known enterpreneur i sell all kinds of wear, brand new devices and london used. located at no.6 lodge hostel Akwa',
   profileImage: "/imgs/sarah.png",
-  listings: damyListings
-
-  
+  listings: damyListings,
+  VerificationInProgress: false,
+  VerificationStartedAt:'May 21,2025', 
+   verificationSteps: [
+    { id: 1, 
+      label: 'Email Confirmation', 
+      completed: true, 
+      success:'Your email address has been successfully verified',
+      inProgress:'Your email address will be verified soon, please wait a moment...' ,
+      verifiedOn: 'May 21,2025',
+    },
+    { id: 2, 
+      label: 'ID Document Upload', 
+      completed: true,
+      success:'Your identification documents have been successfully uploaded',
+      inProgress:'Your identification documents are still under review please wait a moment...' ,
+      uploadedOn: 'May 21,2025',
+      documentFront: '/imgs/front-id.png',
+      documentBack: '/imgs/back-id.png',
+    },
+    { id: 3,
+      label: 'Review',
+      completed: false,
+      success:'Congratulations! Your documents have been successfully verified and accepted by our team',
+      inProgress:'Our team is reviewing your submitted documents. This typically takes 1-2 business days',
+      reviewStartedOn: 'May 21,2025',
+      estimatedCompletion: 'May 23,2025'
+    }
+  ], 
 };
 
 const profileSlice = createSlice({
