@@ -19,11 +19,10 @@ import SubCategoryPage from "./pages/LodgesSubcategoryPage";
 import LodgesPropertyLayout from "./components/Layout/LodgesPropertyLayout";
 import StudentBookmarks from "./components/StudentBookmarks";
 import StudentMarkets from "./components/StudentMarkets";
-import PostAdd from "./components/postAdd";
+import PostAdd from "./components/PostAdd";
 import VerificationProgress from "./components/VerificationProgress";
 import ProfileSettings from "./components/ProfileSettings";
 import PersonalDetails from "./components/PersonalDetails";
-
 
 function App() {
   return (
@@ -31,11 +30,11 @@ function App() {
       <Route index element={<HomePage />} />
       <Route path="/student-dashboard" element={<StudentLayout />}>
         <Route index element={<Navigate to="/student-dashboard/home" />} />
-        <Route path="/student-dashboard/profile" element={<ProfileLayout/>} />
+        <Route path="/student-dashboard/profile" element={<ProfileLayout />} />
         <Route path="/student-dashboard/home" element={<StudentDashboard />} />
         <Route path="/student-dashboard/saved" element={<StudentBookmarks />} />
         <Route path="/student-dashboard/cart" element={<StudentMarkets />}>
-          <Route path="post-add" element={<PostAdd/>}/>
+          <Route path="post-add" element={<PostAdd />} />
         </Route>
         <Route path="/student-dashboard/:category" element={<CategoryPage />} />
         <Route
@@ -103,25 +102,18 @@ function App() {
         element={
           <ProtectedAuthRoute>
             <VerificationProgress />
-         </ProtectedAuthRoute>
+          </ProtectedAuthRoute>
         }
       />
-       <Route
+      <Route
         path="/profile-settings/:role"
         element={
           <ProtectedAuthRoute>
-            <ProfileSettings/>
-         </ProtectedAuthRoute>
+            <ProfileSettings />
+          </ProtectedAuthRoute>
         }
       />
-       <Route
-        path="/personal-details/:role"
-        element={
-          
-            <PersonalDetails/>
-         
-        }
-      />
+      <Route path="/personal-details/:role" element={<PersonalDetails />} />
     </Routes>
   );
 }
