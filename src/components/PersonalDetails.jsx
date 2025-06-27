@@ -18,7 +18,7 @@ function PersonalDetails() {
     const navigate = useNavigate();
  
   return (
-    <section className='w-full overflow-x-hidden  ml-0 sm:max-w-xl md:ml-0 md:max-w-2xl bg-gray-50'>
+    <section className='w-full sm:mt-10 overflow-x-hidden  mx-auto  sm:max-w-xl md:max-w-2xl bg-gray-50'>
       <span className='flex items-center mb-6 gap-6 w-full pr-4 p-3 bg-primary'>
         <img 
         onClick={()=>navigate(-1)}

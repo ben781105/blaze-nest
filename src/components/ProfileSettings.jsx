@@ -29,7 +29,7 @@ function ProfileSettings() {
     { id: 7, name: "Check Analytics" },
   ];
   return (
-    <section className="w-full pl-3 sm:ml-5 max-w-sm mx-auto mt-10 sm:max-w-xl md:ml-4 md:max-w-2xl bg-gray-50 p-4 rounded-md shadow-sm">
+    <section className="w-full overflow-x-hidden  mx-auto sm:mt-10 sm:max-w-xl md:max-w-2xl bg-gray-50 p-4 rounded-md shadow-sm">
       <span className="flex items-center justify-between w-full pr-4">
         <h1 className="font-bold text-xl">Settings</h1>
         <X onClick={() => navigate(-1)} className="cursor-pointer" />
@@ -48,7 +48,7 @@ function ProfileSettings() {
           >
             <p>{item.name}</p>
             {item.name === "Notification" ? (
-              <div className="flex items-center space-x-2 bg-gray-50 p-2 rounded-md ">
+              <div className="flex items-center space-x-2 p-2 rounded-md ">
                 <label className="cursor-pointer relative inline-block w-10 h-5">
                   <input
                     type="checkbox"
