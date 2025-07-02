@@ -23,6 +23,7 @@ import PostAdd from "./components/PostAdd";
 import VerificationProgress from "./components/VerificationProgress";
 import ProfileSettings from "./components/ProfileSettings";
 import PersonalDetails from "./components/PersonalDetails";
+import ProfileVerificationLayout from "./components/Layout/ProfileVerificationLayout";
 
 function App() {
   return (
@@ -96,6 +97,7 @@ function App() {
         <Route path="/agent/dashboard" element={<AgentDashboard />} />
         <Route path="/agent/add-lodge" element={<AddLodge />} />
         <Route path="/agent/manage-listing" element={<ManageListing />} />
+        <Route path="/agent/profile" element={<ProfileLayout />} />
       </Route>
       <Route
         path="/verification-progress/:role"
@@ -114,6 +116,7 @@ function App() {
         }
       />
       <Route path="/personal-details/:role" element={<PersonalDetails />} />
+      <Route path="verify-profile" element={<ProfileVerificationLayout />} />
     </Routes>
   );
 }

@@ -1,5 +1,5 @@
 import Tabs from "./Tabs"; // or use DashboardNav if that's your component
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import {
   HomeIcon,
   SavedIcon,
@@ -33,9 +33,10 @@ const bottomMenuData = [
 ];
 
 const DashboardLayout = () => {
+  const { pathname } = useLocation();
   return (
     <>
-      <Tabs />
+      {pathname !== "/agent/profile" && <Tabs />}
       <div className="p-4 md:mb-16">
         <Outlet />
       </div>
