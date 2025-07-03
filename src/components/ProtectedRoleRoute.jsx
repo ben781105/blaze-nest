@@ -1,6 +1,6 @@
 import { Navigate, useParams } from "react-router-dom";
 
-function ProtectedAuthRoute({ children }) {
+function ProtectedRoleRoute({ children }) {
   const { role } = useParams();
   const validRoles = ["student", "agent"];
 
@@ -11,4 +11,4 @@ function ProtectedAuthRoute({ children }) {
   return children;
 }
 
-export default ProtectedAuthRoute;
+export default ProtectedRoleRoute;
