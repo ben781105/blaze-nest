@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import AuthOptions from "./components/AuthOptions";
-import ProtectedAuthRoute from "./components/ProtectedAuthRoute";
+import ProtectedRoleRoute from "./components/ProtectedRoleRoute";
 import StudentDashboard from "./pages/StudentDashboard";
 import CategoryPage from "./pages/CategoryPage";
 import StudentLayout from "./components/Layout/StudentLayout";
@@ -55,41 +55,41 @@ function App() {
       <Route
         path="/auth/login/:role"
         element={
-          <ProtectedAuthRoute>
+          <ProtectedRoleRoute>
             <SignIn />
-          </ProtectedAuthRoute>
+          </ProtectedRoleRoute>
         }
       />
       <Route
         path="/auth/sign-up/:role"
         element={
-          <ProtectedAuthRoute>
+          <ProtectedRoleRoute>
             <SignUp />
-          </ProtectedAuthRoute>
+          </ProtectedRoleRoute>
         }
       />
       <Route
         path="/password-recovery/:role"
         element={
-          <ProtectedAuthRoute>
+          <ProtectedRoleRoute>
             <PasswordRecovery />
-          </ProtectedAuthRoute>
+          </ProtectedRoleRoute>
         }
       />
       <Route
         path="/verify-password/:role"
         element={
-          <ProtectedAuthRoute>
+          <ProtectedRoleRoute>
             <VerifyPassword />
-          </ProtectedAuthRoute>
+          </ProtectedRoleRoute>
         }
       />
       <Route
         path="/reset-password/:role"
         element={
-          <ProtectedAuthRoute>
+          <ProtectedRoleRoute>
             <ResetPassword />
-          </ProtectedAuthRoute>
+          </ProtectedRoleRoute>
         }
       />
       <Route path="/agent" element={<AgentLayout />}>
@@ -102,21 +102,28 @@ function App() {
       <Route
         path="/verification-progress/:role"
         element={
-          <ProtectedAuthRoute>
+          <ProtectedRoleRoute>
             <VerificationProgress />
-          </ProtectedAuthRoute>
+          </ProtectedRoleRoute>
         }
       />
       <Route
         path="/profile-settings/:role"
         element={
-          <ProtectedAuthRoute>
+          <ProtectedRoleRoute>
             <ProfileSettings />
-          </ProtectedAuthRoute>
+          </ProtectedRoleRoute>
         }
       />
       <Route path="/personal-details/:role" element={<PersonalDetails />} />
-      <Route path="verify-profile" element={<ProfileVerificationLayout />} />
+      <Route
+        path="verify-profile/:role"
+        element={
+          <ProtectedRoleRoute>
+            <ProfileVerificationLayout />
+          </ProtectedRoleRoute>
+        }
+      />
     </Routes>
   );
 }

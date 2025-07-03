@@ -1,4 +1,8 @@
+import { useDispatch } from "react-redux";
+import { setNextStep } from "../store/features/profile/profileVerificationSlice";
+
 function ProfileVerificationStep1() {
+  const dispatch = useDispatch();
   return (
     <div className="flex min-h-screen">
       <div className="w-1/2 flex justify-center items-center bg-gray-100 max-sm:hidden">
@@ -10,7 +14,7 @@ function ProfileVerificationStep1() {
       </div>
 
       <div className="md:w-1/2 flex flex-col justify-between">
-        <header className="bg-primary w-full flex items-center justify-between max-sm:px-3 md:justify-center xl:justify-between md:space-x-16 xl:px-5 py-2 font-bold">
+        <header className="bg-primary w-full flex items-center justify-between max-sm:px-3  xl:justify-between md:space-x-16 md:px-5 py-2 font-bold">
           <div className="flex items-center space-x-1">
             <img src="/svgs/blaze-nest-logo.svg" alt="Blaze Nest Logo" />
             <p className="bg-gradient-black-blue">Blaze Nest</p>
@@ -41,7 +45,10 @@ function ProfileVerificationStep1() {
                 need to verify your identity. This process will only take a few
                 minutes.
               </p>
-              <button className="bg-[#007AFF] text-white py-2 px-5 rounded-lg cursor-pointer">
+              <button
+                className="bg-[#007AFF] text-white py-2 px-5 rounded-lg cursor-pointer"
+                onClick={() => dispatch(setNextStep())}
+              >
                 Start Verification
               </button>
               <p>
