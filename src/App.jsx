@@ -24,6 +24,9 @@ import VerificationProgress from "./components/VerificationProgress";
 import ProfileSettings from "./components/ProfileSettings";
 import PersonalDetails from "./components/PersonalDetails";
 import ProfileVerificationLayout from "./components/Layout/ProfileVerificationLayout";
+import MessagesLayout from "./components/Layout/MessagesLayout";
+import ChatConversation from "./components/ChatConversation";
+import ChatList from "./components/ChatList";
 
 function App() {
   return (
@@ -36,6 +39,10 @@ function App() {
         <Route path="/student-dashboard/saved" element={<StudentBookmarks />} />
         <Route path="/student-dashboard/cart" element={<StudentMarkets />}>
           <Route path="post-add" element={<PostAdd />} />
+        </Route>
+        <Route path="/student-dashboard/chat" element={<MessagesLayout/>}>
+          <Route index element={<ChatList/>}/>
+          <Route path=":chatId" element={<ChatConversation/>} />
         </Route>
         <Route path="/student-dashboard/:category" element={<CategoryPage />} />
         <Route
